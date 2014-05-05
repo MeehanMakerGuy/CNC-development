@@ -1,0 +1,37 @@
+/* StepStick super basic code
+Runs stepper motor 1 revolution each direction
+control speed by adjusting delay's in main loop
+
+Pins
+D3 - Step
+D2 - Direction
+
+*/
+
+int Step = 3;
+int Direction = 2;
+
+void setup() {      
+  pinMode(Direction, OUTPUT); 
+  pinMode(Step, OUTPUT);
+  digitalWrite(Direction, LOW);
+  digitalWrite(Step, LOW);
+}
+
+void loop() {
+  digitalWrite(Direction, LOW);
+ for (int i = 0; i < 200; i++) {
+    digitalWrite(Step, HIGH);
+    delay(15);                  //coil on
+    digitalWrite(Step, LOW);    //coil off)
+    delay(10);
+  }
+ digitalWrite(Direction, HIGH);
+for (int i=0; i<200; i++) {
+   digitalWrite(Step, HIGH);
+    delay(15);                  //coil on
+    digitalWrite(Step, LOW);    //coil off
+    delay(10);
+}
+  
+}
